@@ -1,0 +1,15 @@
+{
+  "name": "gyst",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/server"
+      
+    ]
+  },
+  "repository": "https://github.com/0verread/gyst",
+  "author": "sub0ne1 <iam0verread@gmail.com>",
+  "license": "MIT"
+}
