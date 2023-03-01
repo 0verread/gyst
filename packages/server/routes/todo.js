@@ -1,14 +1,25 @@
-const express = require("express");
-const router = express.Router();
+module.exports = app => {
+  const todos = require('../controllers/todos.controller.js');
 
-const {
-  createTodo,
-  getTodoById,
-  getTodo
-} = require("../controllers/Todo");
+  var router  = require("express").Router();
 
-router.param("todoId", getTodoById);
+  // Create a new TODO
+  router.post("/". todos.create);
 
-router.get("/todo/:todoId/", getTodo);
+  // Fetch all TODOs
+  router.get("/", todos.findAll);
 
-router.post("/todo/create/", createTodo);
+  // Fetch a single TODO
+  router.get("/:id", todos.findById);
+
+  // Update a TODO with id
+  router.put("/:id", todos.updateById);
+
+  // Delete a TODO by Id
+  router.delete("/:id", todos.deleteById);
+
+  // Delete all TODOs
+  router.delete("/", todos.deleteAll);
+
+  app.use('/api/todos', router);
+}

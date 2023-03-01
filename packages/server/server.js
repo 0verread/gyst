@@ -15,14 +15,17 @@ app.use(bodyParser.json());
  * 4. DELETE /:id -> Delete a task
  * */ 
 
-app.use("/api", todoRoutes);
+var corsOptions = {
+  origin: "http://localhost:8081"
+};
 
+app.use(cors(corsOptions));
 
-// app.get('/', (req, res) => {
-//   res.send("Hello World")
-// })
+app.get("/", (req, res) => {
+  res.json({ message: "hello world"});
+})
 
+const PORT = process.env.PORT || 8080;
 
-
-
-app.listen(3000, ()=> console.log('server started'));
+require("./routes/todo.js")(app);
+app.listen(PORT, ()=> console.log('server started'));
