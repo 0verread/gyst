@@ -1,13 +1,16 @@
 const Todo = require("../models/todos.model.js");
 
 // create and save a new TODO
-
 exports.create = (req, res) => {
-
+  if(!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty"
+    });
+  }
 };
 
 exports.findAll = (req, res) => {
-
+  
 };
 
 exports.findById = (req, res) => {
