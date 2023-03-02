@@ -1,6 +1,12 @@
 module.exports = app => {
-  const todos = require('../controllers/todos.controller.js');
+  const users = require('../controllers/users.controller.js');
 
   var router  = require("express").Router();
+
+  router.post("/register", users.create);
+  router.post("/login", users.login);
+  // router.get("/profile", users.findUserById);
+  router.put("/password", users.updateUserByEmail);
+  app.use('/api/user', router);
 
 }

@@ -1,6 +1,7 @@
 // This contain CURD operation
 
-const sql = require("./db.js");
+// const sql = require("./db.js");
+const sql = '';
 
 // constructor
 const Todo = function(todo) {
@@ -38,3 +39,4 @@ Todo.findAll = (title, result) => {
   });
 }
 
+module.exports = Todo;

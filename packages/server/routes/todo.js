@@ -4,7 +4,7 @@ module.exports = app => {
   var router  = require("express").Router();
 
   // Create a new TODO
-  router.post("/". todos.create);
+  router.post("/", todos.create);
 
   // Fetch all TODOs
   router.get("/", todos.findAll);
@@ -13,13 +13,13 @@ module.exports = app => {
   router.get("/:id", todos.findById);
 
   // Update a TODO with id
-  router.put("/:id", todos.updateById);
+  // router.put("/:id", todos.updateById);
 
   // Delete a TODO by Id
-  router.delete("/:id", todos.deleteById);
+  // router.delete("/:id", todos.deleteById);
 
-  // Delete all TODOs
-  router.delete("/", todos.deleteAll);
+  // // Delete all TODOs
+  // router.delete("/", todos.deleteAll);
 
   app.use('/api/todos', router);
 }
