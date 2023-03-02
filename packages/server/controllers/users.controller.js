@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 
 const User = require("../models/Users");
 const {db_password, secret_key} = require("../config/envvars");
-// require('dotenv').config();
+
 users.use(cors());
 var secret = secret_key;
 
