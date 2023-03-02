@@ -1,6 +1,8 @@
-const Sequelize = require('sequelize')
+const Sequelize = require('sequelize');
+const { db_password } = require('./envvars'); 
 const db = {}
-const sequelize = new Sequelize('gystdb', 'root', process.env.DB_PASSWORD, {
+
+const sequelize = new Sequelize('gystdb', 'root', db_password, {
   host: 'localhost',
   dialect: 'mysql',
   operatorsAliases: false,

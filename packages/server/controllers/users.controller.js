@@ -4,9 +4,11 @@ const jwt  = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const User = require("../models/Users");
-require('dotenv').config();
+const {db_password, secret_key} = require("../config/envvars");
+// require('dotenv').config();
 users.use(cors());
-secret_key  = process.env.SECRET_KEY
+var secret = secret_key;
+
 exports.create = (req, res) => {
   const today = new Date();
   const userData = {
@@ -27,7 +29,7 @@ exports.create = (req, res) => {
         userData.password = hash
         User.create(userData)
         .then(user => {
-          let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
+          let token = jwt.sign(user.dataValues, secret, {
             expiresIn: 1400
           })
           res.json({ token: token})
@@ -55,7 +57,7 @@ exports.login = (req, res) => {
   .then(user => {
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
-        let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
+        let token = jwt.sign(user.dataValues, secret, {
           expiresIn: 1440
         })
         res.json({token: token})
@@ -73,7 +75,7 @@ exports.login = (req, res) => {
 
 // Update user Details logic
 exports.updateUserByEmail = (req, res) => {
-  var decode = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+  var decode = jwt.verify(req.headers['authorization'], secret)
   User.findOne({
     where: {
       id: decode.id
