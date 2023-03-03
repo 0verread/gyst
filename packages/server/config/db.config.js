@@ -18,4 +18,4 @@ const sequelize = new Sequelize('gystdb', 'root', db_password, {
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
-module.exports = db
+module.exports = db;
