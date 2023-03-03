@@ -13,10 +13,10 @@ module.exports = app => {
   router.get("/:id", todos.findById);
 
   // Update a TODO with id
-  // router.put("/:id", todos.updateById);
+  router.put("/:id", todos.updateById);
 
   // Delete a TODO by Id
-  // router.delete("/:id", todos.deleteById);
+  router.delete("/:id", todos.deleteById);
 
   // // Delete all TODOs
   // router.delete("/", todos.deleteAll);
