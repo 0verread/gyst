@@ -17,9 +17,6 @@ module.exports = db.sequelize.define(
     },
     isDone: {
       type: Sequelize.BOOLEAN
-    },
-    user_id: {
-      type: Sequelize.INTEGER
     }
   },
   {
