@@ -4,7 +4,8 @@ export const getList = () => {
   return axios
       .get('/api/todos', {
       headers: { 
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
       }
       })
       .then(res => {
@@ -29,6 +30,7 @@ return axios
     {
       headers: { 
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
       }
     }
   )
@@ -48,6 +50,7 @@ return axios
   .delete(`/api/todos/${task.id}`, {
     headers: { 
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
       }
   })
   .then(function(response) {

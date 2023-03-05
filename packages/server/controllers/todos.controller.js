@@ -1,6 +1,5 @@
 const todos = require("express").Router();
 const cors = require("cors");
-const jwt  = require("jsonwebtoken");
 
 const Todo = require("../models/Todos.js");
 
@@ -18,7 +17,7 @@ const taskXml = (task) => {
 
 const formDataInXml = (data) => {
   let allTaskInxml = `<?xml version="1.0" encoding="UTF-8"?>` + 
-  `<todoList>`;
+                    `<todoList>`;
   if(Array.isArray(data)){
     data.forEach((task) => {
       allTaskInxml += taskXml(task);
@@ -78,7 +77,7 @@ exports.findById = (req, res) => {
   })
   .then(task => {
     if(task) {
-      res.json(task)
+      sendResponse(req, res, task)
     } else {
       res.send('Task does not exist')
     }

@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const { db_password } = require('./envvars'); 
 const db = {}
 
+// Change the DB name and user 
 const sequelize = new Sequelize('gystdb', 'root', db_password, {
   host: 'localhost',
   dialect: 'mysql',

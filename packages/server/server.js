@@ -15,5 +15,4 @@ app.use(cors(corsOptions));
 const PORT = process.env.PORT || 8080;
 
 require("./routes/todo.js")(app);
-require('./routes/users.js')(app);
 app.listen(PORT, ()=> console.log('server started'));
