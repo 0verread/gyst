@@ -6,8 +6,7 @@
   "workspaces": {
     "packages": [
       "packages/server",
-      "packages/app"
-      
+      "packages/app"    
     ]
   },
   "repository": "https://github.com/0verread/gyst",
